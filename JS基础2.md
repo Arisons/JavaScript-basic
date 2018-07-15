@@ -39,7 +39,7 @@ window.addEventListener('load', function(){},false)/window.attachEvent('onreadys
 
 ## JS常用的输出方式
 
-> ###JS中提供的浏览器弹窗 => alert
+> ### JS中提供的浏览器弹窗 => alert
 
 ```js
 alert(1);
@@ -51,7 +51,7 @@ alert(1+1); //"2"
 
 **使用alert弹窗提示信息，提示的内容最后都会被转换成字符串（调用toString方法）**
 
-> ###confirm: 在alert基础上增加了让用户选择性的操作（提供两个按钮：确定和取消）
+> ### confirm: 在alert基础上增加了让用户选择性的操作（提供两个按钮：确定和取消）
 
 ```js
 var flag = confirm('确定要删除吗？');
@@ -60,7 +60,7 @@ var flag = confirm('确定要删除吗？');
 // 与alert相同，弹出的内容也会被转成字符串
 ```
 
-> ###prompt: 在confirm基础上增加用户输入效果
+> ### prompt: 在confirm基础上增加用户输入效果
 
 ```js
 var flag = prompt('确认删除吗？');
@@ -70,12 +70,12 @@ var flag = prompt('确认删除吗？');
 
 **真实项目中，尤其是需要样式精美的网站中，我们的提示框一般都是自己封装常见和组件来实现的，不会用内置的（使用原生JS封装模态框组件）**
 
-> ###console.log(): 控制台输出
+> ### console.log(): 控制台输出
 
 console.log(): 在控制台输出，优势不会转换数据类型，输出什么格式的数据都可以
 
-> ###console.dir(): 比LOG输出的更加详细
-> ###console.table(): 把JSON数据展示成一个表格
+> ### console.dir(): 比LOG输出的更加详细
+> ### console.table(): 把JSON数据展示成一个表格
 
 **思考除了上述的输出console里面还有那些输出？**
 
