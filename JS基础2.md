@@ -77,7 +77,7 @@ console.log(): 在控制台输出，优势不会转换数据类型，输出什�
 > ###console.dir(): 比LOG输出的更加详细
 > ###console.table(): 把JSON数据展示成一个表格
 
-**思考除了删除的输出console里面还有那些输出？**
+**思考除了上述的输出console里面还有那些输出？**
 
 > ### document.write(): 想页面中打印输出内容
 
