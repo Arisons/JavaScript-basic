@@ -11,7 +11,7 @@
 > 
 > + object对象数据类型
 >   + {} 普通对象
->   + []  数组
+>   + [] 数组
 >   + /^$/ 正则
 >   + ...
 > + function 函数数据类型
@@ -73,6 +73,14 @@ typeof /^$/; // =>"object"
 
 ```javascript
 console.log(typeof typeof []);
+
+console.log(typeof 42);
+
+console.log(typeof 'blubber');
+
+console.log(typeof true);
+
+console.log(typeof  declaredButUndefinedVariable);
 ```
 
 ## 布尔类型
@@ -151,6 +159,15 @@ parseInt('px12'); //=>NaN
 parseInt('12.5'); //=> 12
 ```
 
+	parseInt(string, radix)
+
+> string:要被解析的值。如果参数不是字符串，则将其转换为字符串，字符串开头的空白符将会被忽略
+> 
+> radix:一个介于2-36之间的整数，表示上述字符串的进制。默认为10。 
+> 
+> 返回解析后的整数值。如果被解析参数的第一字符无法被转化成数值类型，则返回NaN
+
+
 **`parseFloat()`**
 
 > 在parseInt的基础上可以识别小数点
@@ -159,8 +176,6 @@ parseInt('12.5'); //=> 12
 parseInt('12.5px'); //=>12
 parseFloat('12.5px'); //=>12.5
 ```
-
-思考：parseInt常用的只需要传递一个值做参数即可，但它支持多个参数，获取后扩展其他参数的意思
 
 ## null和undefined
 
@@ -180,6 +195,6 @@ parseFloat('12.5px'); //=>12.5
 
 `null和undefined的区别`
 
-> null 一般都是暂时没有，与其中以后会有（可能以后也没有达到预期）：在JS中null一般都是手动先赋值为null，后期我们再给其赋值
+> null 一般都是暂时没有，但其中以后会有（可能以后也没有达到预期）：在JS中null一般都是手动先赋值为null，后期我们再给其赋值
 > 
 > undefined 完全没在预料之内的
