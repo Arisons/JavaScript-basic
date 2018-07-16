@@ -79,7 +79,7 @@ console.log(): 在控制台输出，优势不会转换数据类型，输出什�
 
 **思考除了上述的输出console里面还有那些输出？**
 
-> ### document.write(): 想页面中打印输出内容
+> ### document.write(): 向页面中打印输出内容
 
 ```js
 document.write('现在这个输出很少用呢！');
