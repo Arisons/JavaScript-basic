@@ -130,7 +130,7 @@ switch(num%3){
 
 ```jvascript
 var num = '6';
-switch(num%3){
+switch(num){
 	case 0:
 		num++;
 		break;
