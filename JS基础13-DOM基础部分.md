@@ -124,24 +124,32 @@ document.documentElement.clientWidth || document.body.clientWidth //=> 获取当
 
 `元素节点`
 nodeType： 1
+
 nodeName： 大写标签名（在部分浏览器的怪异模式下，我们写的标签名是小写，它获取的就是小写）
+
 nodeValue： null
 
 [curEle].tagName: 获取当前元素的标签名（获取的标签名一般是大写）
 
 `文本节点`
 nodeType： 3
+
 nodeName： #text
+
 nodeValue： 文本内容
 
 `注释节点`
 nodeType： 8
+
 nodeName： #comment
+
 nodeValue： 注释内容
 
 `文档节点`
 nodeType： 9
+
 nodeName： #document
+
 nodeValue： null
 
 > 节点是用来描述页面中每一部分之间关系的，只要我可以获取页面中的一个节点，那么我就可以通过相关的属性和方法获取页面中所有的节点
@@ -255,5 +263,61 @@ function queryURLParameter( url ) {
 
 > 元素.cloneNode(false/true)
 > 把所有的元素克隆一份一模一样的，false：只可能当前元素本身，true：深度克隆，把当前元素本身以及元素所有后代都进行克隆
+> 不管是深度克隆还是浅度克隆，都不会克隆元素本身的事件
 
+[点击查看-示例](https://codepen.io/smileyby/pen/MBJdxe)
+
+`[set|get|remove]Attribute`
+
+> 给当前元素设置/获取/移除 属性（一般操作的都是它的自定义属性）
+
+```
+box.setAttribute('myIndex', 0);
+box.getAttribuye('myIndex');
+box.removeAttribute('myIndex');
+```
+
+> 使用`xxx.index = 0`和`xxx.setAttribute('index',0)`，这两种设置自定义属性的区别：
+> 
+> `xxx.index`：是把当前操作的元素当做一个普通对象，为其设置一个属性名（和页面中的HTML标签没关系）
+> `xxx.setAttribute`：把元素当做特殊的元素对象来处理，设置的自定义属性和页面结构中的DOM元素映射在一起
+
+JS中获取的元素对象，我们可以把它理解为两种角色：
+- 与页面HTML结构无关的普通对象
+- 与页面HTML结构存在映射关系的元素对象
+
+> 元素对象中的内置属性，大部分都和页面的标签存在映射关系：
+>
+> `xxx.style.backgroundColor='xxx'`此时不仅把JS中对象对应的属性值改变了，而且也会映射到页面的HTML标签上（标签中有一个style行内样式、元素的样式改变了）
+>
+> `xxx.className=xxx`此时不仅是把JS对象中的属性值改了，而且页面中的标签增加了class样式类（可见）
+
+----
+
+> 元素对象中的自定义属性：xxx.index=0
+> 仅仅是把JS对象中增加了一个属性名（自定义的），和页面中的HTML结构没关系
+
+----
+
+> xxx.setAttribute：通过这种方式设置的自定义属性和之前提到的内置属性差不多，都是和HTML结构存在映射关系的（设置的自定义属性可呈现在结构上）
+
+> 扩展方法
+> 获取当前元素的上一个哥哥元素节点（兼容所有浏览器）
+
+```javascript
+function prev(curEle) {
+	var p = curEle.previousSibling;
+	while(p && p.nodeType !== 1) {//-> p:p!=null
+		p = p.previousSibling;
+	}
+	return p;
+}
+```
+
+- 练习
+> next: 获取下一个弟弟元素节点
+> prevAll: 获取所有的哥哥元素节点
+> nextAll: 获取所有的弟弟元素节点
+> siblings: 获取所有的兄弟元素节点
+> index: 获取当前元素在兄弟节点中的排名索引
 
