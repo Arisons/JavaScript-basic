@@ -53,7 +53,7 @@ consol.log(result);
 	<div></div>
 </body>
 <script>
-	var bodyBox = document.getElementsByTagName('body')[0];
+	var bodyBox = document.getElementsByTagName('body');
 	bodyBox.getElementsByTagName('div'); //=> Uncaught TypeError: bodyBox.getElementsByTagName is not a function此时的bodyBox是一个类数组集合，我们需要使用的是其中第一项，而不是整个变量
 </script>
 ```
