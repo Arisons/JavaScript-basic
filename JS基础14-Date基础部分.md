@@ -30,3 +30,20 @@ var time = new Date('2018-01-01'); //=> 当new Date中传递一个时间格式�
 ```
 
 测试：实现倒计时
+
+```javascript
+function computed(){
+	var nowTime = new Date(),
+		targetTime = new Date('2018/12/12 12:12:12');
+	var spanTime = targetTime - nowTime;
+	if( spanTime <= 0 ){
+		return;
+	}
+	var hour = Math.fllor(spanTime/(1000*60*60));
+	spanTime -= hour*60*60*1000;
+	var minute = Math.floor(spanTime/(1000*60));
+	spanTime -= minute*60*1000;
+	var second = Math.floor(spanTime/1000);
+	
+}
+```

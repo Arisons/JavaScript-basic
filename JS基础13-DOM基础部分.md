@@ -316,8 +316,90 @@ function prev(curEle) {
 
 - 练习
 > next: 获取下一个弟弟元素节点
+
+```javascript
+function next(curEle) {
+	var p = curEle.nextSibling;
+	while(p && p.nodeType !== 1) {//-> p:p!=null
+		p = p.nextSibling;
+	}
+	return p;
+}
+```
+
 > prevAll: 获取所有的哥哥元素节点
+
+```javascript
+function prevAll(curEle) {
+    var p = curEle.previousSibling,
+        arr = [];
+    while(p){
+        if(p.nodeType === 1){
+            arr.push(p);
+        }
+        p = p.previousSibling;
+    }
+    return arr;
+}
+```
+
 > nextAll: 获取所有的弟弟元素节点
+
+```javascript
+function prevAll(curEle) {
+    var p = curEle.nextSibling,
+        arr = [];
+    while(p){
+        if(p.nodeType === 1){
+            arr.push(p);
+        }
+        p = p.nextSibling;
+    }
+    return arr;
+}
+```
+
 > siblings: 获取所有的兄弟元素节点
+
+```javascript
+function getAll(curEle) {
+    var pNext = curEle.nextSibling,
+        pPrev = curEle.previousSibling,
+        arr = [],
+        arr1 = [],
+        arr2 = [];
+    while(pPrev){
+        if(pPrev.nodeType === 1){
+            arr1.push(pPrev);
+        }
+        pPrev = pPrev.previousSibling;
+    }
+    while(pNext){
+        if(pNext.nodeType === 1){
+            arr2.push(pNext);
+        }
+        pNext = pNext.nextSibling;
+    }
+    arr = arr1.concat(arr2);
+    return arr;
+}
+```
+
 > index: 获取当前元素在兄弟节点中的排名索引
+
+```javascript
+function elementIndex(curEle) {
+    var p = curEle.previousSibling,
+        index = 0;
+    while(p){
+        if(p.nodeType === 1){
+            index += 1;
+        }
+        p = p.previousSibling;
+    }
+    return index;
+}
+```
+
+**练习部分为个人实现，仅供参考**
 
